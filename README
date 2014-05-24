@@ -8,3 +8,9 @@ To build on Windows:
 To build:
 - Assumes presence of Node.js
 - Run ./jake.sh to build
+
+To Do on current task:
+- Choose test framework
+- Abstract it
+- Swap out a different framework to make sure that abstraction works-
+- Add LICENSE.TXT
