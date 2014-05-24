@@ -17,5 +17,11 @@ Engineering Tasks
 * automated build
 * static code analysis (Lint)
 * continuous integration
-- server-side testing
+* server-side testing
 - client-side testing
+
+To Do on current task:
+- Choose test framework
+- Abstract it
+- Swap out a different framework to make sure that abstraction works-
+- Add LICENSE.TXT
