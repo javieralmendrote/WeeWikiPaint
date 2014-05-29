@@ -1,0 +1,5 @@
+License
+
+Copyright (c) 2014 Javier Almendrote
+
+Fent el curs de James Shore. Let's Code Javascript

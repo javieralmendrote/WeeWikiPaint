@@ -21,7 +21,7 @@ Engineering Tasks
 - client-side testing
 
 To Do on current task:
-- Choose test framework
-- Abstract it
-- Swap out a different framework to make sure that abstraction works-
-- Add LICENSE.TXT
+- make lint fale when tests fail
+
+Future ideas
+- Abstract test framework? (Swap out a different framework to make sure abstraction works)
