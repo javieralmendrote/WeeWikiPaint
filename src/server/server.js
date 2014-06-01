@@ -3,8 +3,16 @@
  */
 "use strict";
 
-console.log("Hello, I'm a server. No, really. What?");
+var http = require("http");
 
-exports.number =function(){
-    return 3;
+exports.start = function(){
+    var server = http.createServer();
+
+    server.on("request", function(request, response){
+        console.log("Received request");
+        response.end("foo");
+    });
+
+
+    server.listen(8080);    //TODO: remove duplication of port number
 };
