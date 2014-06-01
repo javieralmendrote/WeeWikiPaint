@@ -5,6 +5,7 @@
 // This is a simple spike of Node's HTTP module. The goal was to show how to serve a very simple HTML
 // page using Node. It's not robust and it reflects avery basic understanding of Node; use it as a
 // starting point,not a production-quality example.
+"use strict";
 
 var http = require ("http");
 
