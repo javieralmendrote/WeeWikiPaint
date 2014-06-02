@@ -41,3 +41,9 @@ exports.test_serverRunsCallbackWhenStopCompletes = function(test) {
     });
     server.start(); //TODO: chapuza para que pase el test
 };
+
+exports.test_stopCalledTwiceInARow = function(){
+    server.stop();
+    server.stop();
+    server.start();
+};
