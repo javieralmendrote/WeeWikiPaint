@@ -19,10 +19,10 @@ Engineering Tasks
 * continuous integration
 * server-side testing
 * create a very simple http server
+* serve a file
 - client-side testing
 
 To Do on current task:
-- Modify build script to enforce Node version
 - Integrate
 
 Future ideas
