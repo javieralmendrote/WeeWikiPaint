@@ -11,7 +11,7 @@ exports.start = function(portNumber){
     server.on("request", function(request, response){
         response.end("Hello World");
     });
-    server.listen(portNumber);  
+    server.listen(portNumber);
 };
 
 exports.stop = function(callback){
