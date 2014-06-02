@@ -5,7 +5,6 @@
     task("default", ["Lint", "test"]);
 
     desc("Lint everything");
-
     function nodeLintOptions() {
         var options = {
             bitwise: true,
@@ -27,7 +26,7 @@
         return options;
     }
 
-    task("Lint", [], function () {
+    task("Lint", ["node"], function () {
         var lint = require("./build/lint/lint_runner.js");
 
         var files = new jake.FileList();
@@ -41,9 +40,9 @@
     });
 
     desc("Test everything");
-    task("test", [], function(){
+    task("test", ["node"], function () {
         var reporter = require("nodeunit").reporters["default"];
-        reporter.run(['src/server/_server_test.js'], null, function(failures){
+        reporter.run(['src/server/_server_test.js'], null, function (failures) {
             if (failures) fail("Tests failed");
             complete();
         });
@@ -61,3 +60,26 @@
         console.log("4. 'git merge master --no-ff --log'");
         console.log("5. 'git checkout master'");
     });
+
+//desc("Ensure correct version of Node is present");
+task("node", [], function () {
+    var desiredNodeVersion = "v0.10.28\n";
+    var command = "node --version";
+    console.log("> " + command);
+
+    var stdout = "";
+    var process = jake.createExec(command, {printStdout:true, printStderr:true});
+    process.on("stdout", function(chunk){
+        stdout += chunk;
+    });
+    process.on("cmdEnd", function(){
+        if (stdout !== desiredNodeVersion) fail("Incorrect node version. Expected " + desiredNodeVersion);
+        console.log("Stdout: " + stdout);
+        complete();
+    });
+    process.run();
+//    jake.exec(command, function(){
+//        complete();
+//    }, {printStdout:true, printStderr:true});
+}, {async:true});
+
