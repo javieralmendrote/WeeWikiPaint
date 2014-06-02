@@ -9,9 +9,10 @@ Minimum Marketing Features:
 
 User Stories:
 * "hello world" server
-- "hello world" client (one browser)
-- support multiple browsers
-- marketing copy
+* Serve a one-file homepage
+- Serve 404 errors for everything else
+- Marketing copy
+- Publish to internet
 
 Engineering Tasks
 * automated build
@@ -19,11 +20,11 @@ Engineering Tasks
 * continuous integration
 * server-side testing
 * create a very simple http server
-* serve a file
-- client-side testing
+- spike serving a file
+- TDD file serving
+- design work?
 
 To Do on current task:
-- Integrate
 
 Future ideas
 - Create 'fail fast' assertion code??
