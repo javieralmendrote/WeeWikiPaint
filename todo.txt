@@ -18,13 +18,15 @@ Engineering Tasks
 * static code analysis (Lint)
 * continuous integration
 * server-side testing
-- create a very simple http server
+* create a very simple http server
 - client-side testing
 
 To Do on current task:
 - Modify build script to enforce Node version
+- Integrate
 
 Future ideas
+- Create 'fail fast' assertion code??
 - Abstract test framework? (Swap out a different framework to make sure abstraction works)
 
 Notes:
