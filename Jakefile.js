@@ -62,24 +62,27 @@
     });
 
 //desc("Ensure correct version of Node is present");
-task("node", [], function () {
-    var desiredNodeVersion = "v0.10.28\n";
-    var command = "node --version";
+function sh(command, callback){
     console.log("> " + command);
-
     var stdout = "";
     var process = jake.createExec(command, {printStdout:true, printStderr:true});
     process.on("stdout", function(chunk){
         stdout += chunk;
     });
     process.on("cmdEnd", function(){
-        if (stdout !== desiredNodeVersion) fail("Incorrect node version. Expected " + desiredNodeVersion);
-        console.log("Stdout: " + stdout);
-        complete();
+        console.log();
+        callback(stdout);
     });
     process.run();
-//    jake.exec(command, function(){
-//        complete();
-//    }, {printStdout:true, printStderr:true});
+}
+
+task("node", [], function () {
+    var NODE_VERSION = "v0.10.28\n";
+
+    sh("node --version", function (stdout) {
+        if (stdout !== NODE_VERSION) fail("Incorrect node version. Expected " + NODE_VERSION);
+        complete();
+    });
 }, {async:true});
+
 
