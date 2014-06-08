@@ -1,7 +1,15 @@
-/*global desc, task, jake, fail, complete */
+/*global desc, task, jake, fail, complete, directory */
 (function() {
     "use strict";
     var NODE_VERSION = "v0.10.28";
+    var TEMP_TESTFILE_DIR = "generated/test";
+
+    directory(TEMP_TESTFILE_DIR);
+
+    desc("Delete all generate files");
+    task("clean", [], function(){
+        jake.rmRf("generated");
+    });
 
     desc("Build and test");
     task("default", ["Lint", "test"]);
@@ -21,7 +29,7 @@
     });
 
     desc("Test everything");
-    task("test", ["nodeVersion"], function () {
+    task("test", ["nodeVersion", TEMP_TESTFILE_DIR], function () {
         var reporter = require("nodeunit").reporters["default"];
         reporter.run(['src/server/_server_test.js'], null, function (failures) {
             if (failures) fail("Tests failed");
