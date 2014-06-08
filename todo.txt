@@ -10,7 +10,7 @@ Minimum Marketing Features:
 User Stories:
 * "hello world" server
 * Serve a one-file homepage
-- Serve 404 errors for everything else
+* Serve 404 errors for everything else
 - Marketing copy
 - Publish to internet
 
