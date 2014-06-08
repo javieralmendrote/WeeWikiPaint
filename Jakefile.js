@@ -2,13 +2,14 @@
 (function() {
     "use strict";
     var NODE_VERSION = "v0.10.28";
-    var TEMP_TESTFILE_DIR = "generated/test";
+    var GENERATED_DIR = "generated";
+    var TEMP_TESTFILE_DIR = GENERATED_DIR + "/test";
 
     directory(TEMP_TESTFILE_DIR);
 
     desc("Delete all generate files");
     task("clean", [], function(){
-        jake.rmRf("generated");
+        jake.rmRf(GENERATED_DIR);
     });
 
     desc("Build and test");

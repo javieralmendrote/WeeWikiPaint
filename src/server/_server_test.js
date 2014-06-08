@@ -32,9 +32,15 @@ exports.test_serverServesAFile = function(test){
     var testDir = "generated/test";
     var testFile = testDir + "/test.html";
 
-    fs.writeFileSync(testFile, "Hello world");
+    try{
+        fs.writeFileSync(testFile, "Hello world");
+        test.done();
+    }
+    finally{
+        fs.unlinkSync(testFile);
+        test.ok(!fs.existsSync(testFile), "file should have been cleaned");
+    }
 
-    test.done();
 };
 
 exports.test_serverRequiresPortNumber = function(test){
