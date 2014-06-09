@@ -5,3 +5,11 @@
 // launch the server in the same way it happens in production
 // get a page
 // confirm we got something
+
+(function() {
+    "use strict";
+
+    exports.test_for_smoke = function (test) {
+        test.ok(false, "hi");
+    };
+}());

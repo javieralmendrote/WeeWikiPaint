@@ -8,9 +8,8 @@ Minimum Marketing Features:
 - more collaborative features?
 
 User Stories:
-* Stand-alone server
 - Marketing copy
-- Publish to internet
+* Publish to internet
 
 Engineering Tasks
 - Write end-to-end integration test
