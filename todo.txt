@@ -31,6 +31,7 @@ Future ideas
 - Create 'fail fast' assertion code??
 - Abstract test framework? (Swap out a different framework to make sure abstraction works)
 - Static checking of function parameters (rather than writing tests)
+- Handle errors properly in server.js
 
 Notes:
 - It seems like NodeUnit doesn't work properly on Windows.

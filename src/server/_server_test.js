@@ -19,7 +19,7 @@
         done();
     };
 
-    exports.test_serverServesHomePageFromFile = function (test) {
+    exports.test_servesHomePageFromFile = function (test) {
         var testDir = "generated/test";
         var expectedData = "This is served from a file";
 
@@ -31,14 +31,14 @@
         });
     };
 
-    exports.test_serverReturns404ForEverythingExceptHomePage = function (test) {
+    exports.test_returns404ForEverythingExceptHomePage = function (test) {
         httpGet("http://localhost:8080/bargle", function (response, responseData) {
             test.equals(404, response.statusCode, "status code");
             test.done();
         });
     };
 
-    exports.test_serverReturnsHomePageWhenAskedForIndex = function(test){
+    exports.test_returnsHomePageWhenAskedForIndex = function(test){
         var testDir = "generated/test";
         fs.writeFileSync(TEST_FILE, "foo");
 
@@ -48,28 +48,28 @@
         });
     };
 
-    exports.test_serverRequiresTheFileToServe = function (test) {
+    exports.test_requiresFileParameter = function (test) {
         test.throws(function () {
             server.start();
         });
         test.done();
     };
 
-    exports.test_serverRequiresPortNumber = function (test) {
+    exports.test_requiresPortParameter = function (test) {
         test.throws(function () {
             server.start(TEST_FILE);
         });
         test.done();
     };
 
-    exports.test_serverRunsCallbackWhenStopCompletes = function (test) {
+    exports.test_runsCallbackWhenStopCompletes = function (test) {
         server.start(TEST_FILE, 8080);
         server.stop(function () {
             test.done();
         });
     };
 
-    exports.test_stopCalledWhenServerIsntRunningThrowsException = function (test) {
+    exports.test_stopThrowsExceptionWhenNotRunning = function (test) {
         test.throws(function () {
             server.stop();
         });
