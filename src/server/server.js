@@ -7,13 +7,13 @@ var http = require("http");
 var fs = require("fs");
 var server;
 
-exports.start = function(htmlFileToServe, portNumber){
+exports.start = function(homePageToServe, notFoundPageToServe, portNumber){
     if (!portNumber) throw new Error("port number is required");
 
     server = http.createServer();
     server.on("request", function(request, response){
         if (request.url === "/" || request.url === "/index.html"){
-            fs.readFile(htmlFileToServe, function (err, data) {
+            fs.readFile(homePageToServe, function (err, data) {
                 if (err) throw err;
                 response.end(data);
             });
