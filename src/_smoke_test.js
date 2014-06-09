@@ -10,6 +10,12 @@
     "use strict";
 
     exports.test_for_smoke = function (test) {
-        test.ok(false, "hi");
+        runProcess("weewikipaint homepage.html 404.html 8080");
+
+        test.done();
     };
+
+    function runProcess(command){
+        
+    }
 }());
