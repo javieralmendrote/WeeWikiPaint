@@ -31,10 +31,11 @@
 
     exports.test_returns404FromFileForEverythingExceptHomePage = function (test) {
         var expectedData = "This is 404 page file";
-        fs.writeFileSync(TEST_HOME_PAGE, expectedData);
+        fs.writeFileSync(TEST_404_PAGE, expectedData);
 
         httpGet("http://localhost:8080/bargle", function (response, responseData) {
             test.equals(404, response.statusCode, "status code");
+            test.equals(expectedData, responseData, "404 text");
             test.done();
         });
     };
