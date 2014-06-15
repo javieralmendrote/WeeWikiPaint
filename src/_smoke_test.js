@@ -12,15 +12,19 @@
     var child_process = require("child_process");
 
     exports.test_for_smoke = function (test) {
-        var command = "node src/server/weewikipaint 8080";
+        runServer("node src/server/weewikipaint 8080", function () {
+            test.done();
+        });
+    };
 
+    function runServer(command, callback){
         child_process.exec(command, function(error, stdout, stderr){
             if (error !== null) {
                 console.log(stdout);
                 console.log(stderr);
                 throw error;
             }
-            test.done();
+            callback();
         });
-    };
+    }
 }());
