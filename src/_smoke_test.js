@@ -12,14 +12,14 @@
     var child_process = require("child_process");
     var http = require("http");
 
-//    exports.test_for_smoke = function (test) {
-//        runServer(function(){
-//            httpGet("http://localhost:8080", function (response, receivedData) {
-//                console.log("got file");
-//                test.done();
-//            });
-//        });
-//    };
+    exports.test_for_smoke = function (test) {
+        runServer(function(){
+            httpGet("http://localhost:8080", function (response, receivedData) {
+                console.log("got file");
+                test.done();
+            });
+        });
+    };
 
     function runServer(callback){
         var child = child_process.spawn("node", ["src/server/weewikipaint", "8080"]);
