@@ -13,6 +13,10 @@
     var http = require("http");
     var child;
 
+    exports.setUp = function(done){
+        runServer(done);
+    };
+
     exports.tearDown = function(done){
         child.on("exit", function(code, signal){
             done();
@@ -21,13 +25,12 @@
     };
 
     exports.test_for_smoke = function (test) {
-        runServer(function(){
-            httpGet("http://localhost:8080", function (response, receivedData) {
-                console.log("got file");
-                test.done();
-            });
+        httpGet("http://localhost:8080", function (response, receivedData) {
+            test.done();
         });
     };
+
+    //TODO: check 404 page
 
     function runServer(callback){
         child = child_process.spawn("node", ["src/server/weewikipaint", "8080"]);
