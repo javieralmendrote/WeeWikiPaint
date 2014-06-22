@@ -11,6 +11,14 @@
 
     var child_process = require("child_process");
     var http = require("http");
+    var child;
+
+    exports.tearDown = function(done){
+        child.on("exit", function(code, signal){
+            done();
+        });
+        child.kill();
+    };
 
     exports.test_for_smoke = function (test) {
         runServer(function(){
@@ -22,17 +30,10 @@
     };
 
     function runServer(callback){
-        var child = child_process.spawn("node", ["src/server/weewikipaint", "8080"]);
+        child = child_process.spawn("node", ["src/server/weewikipaint", "8080"]);
         child.stdout.setEncoding("utf8");
         child.stdout.on("data", function(chunk){
-            process.stdout.write("server stdout: " + chunk);
             if (chunk.trim() === "Server started") callback();
-        });
-        child.stderr.on("data", function(chunk){
-            console.log("server stderr: " + chunk);
-        });
-        child.on("exit", function(code, signal){
-            console.log("Server process exited with code [" + code + "] and signal [" + signal + "]");
         });
     }
 

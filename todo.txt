@@ -16,6 +16,7 @@ Engineering Tasks
 - Write server launch code
 
 To Do on current task:
+- move homepage.html to the correct directory
 
 Future ideas
 - Create 'fail fast' assertion code??
