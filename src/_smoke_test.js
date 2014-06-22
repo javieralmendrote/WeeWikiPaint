@@ -24,8 +24,10 @@
         child.kill();
     };
 
-    exports.test_for_smoke = function (test) {
+    exports.test_canGetHomePage = function (test) {
         httpGet("http://localhost:8080", function (response, receivedData) {
+            var foundHomePage = receivedData.indexOf("WeeWikiPaint home page") !== -1;
+            test.ok(foundHomePage, "home page should have contained WeeWikiPaint marker");
             test.done();
         });
     };
