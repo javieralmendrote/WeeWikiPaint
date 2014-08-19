@@ -8,15 +8,12 @@ Minimum Marketing Features:
 - more collaborative features?
 
 User Stories:
-- Marketing copy
+> Marketing copy
 * Publish to internet
 
 Engineering Tasks
-- Write end-to-end integration test
-- Write server launch code
 
 To Do on current task:
-- move homepage.html to the correct directory
 
 Future ideas
 - Create 'fail fast' assertion code??
